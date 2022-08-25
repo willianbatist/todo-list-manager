@@ -1,12 +1,13 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import 'dotenv/config';
 import 'express-async-errors';
 
 const app = express();
 
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT_SERVER;
 
 app.get('/', (_req: Request, res: Response) => {
   res.status(StatusCodes.OK).send('welcome to api todo-list-manager')
