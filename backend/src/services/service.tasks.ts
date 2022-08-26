@@ -1,3 +1,4 @@
+import { Optional } from 'sequelize/types';
 import Tasks from '../database/models/tasks';
 
 export const getTasks = async () => {
@@ -5,4 +6,7 @@ export const getTasks = async () => {
   return tasks;
 }
 
-export const g = {};
+export const createTask = async (body: Optional<any, string> | undefined) => {
+  const task = await Tasks.create(body);
+  return task;
+};
