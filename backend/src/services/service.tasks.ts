@@ -17,3 +17,8 @@ export const updateTask = async (id: number, body: ITask) => {
   const update = await Tasks.update({ task, status }, { where: { id } });
   return update;
 }
+
+export const deleteTask = async (id: number) => {
+  const delTask = await Tasks.destroy({ where: { id } });
+  return delTask;
+}
