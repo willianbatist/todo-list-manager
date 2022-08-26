@@ -1,11 +1,12 @@
 import express, { NextFunction, Request, Response } from 'express';
+import cors from 'cors';
 import { StatusCodes } from 'http-status-codes';
 import taskRouter from './routes/tasks.routes';
 import 'dotenv/config';
 import 'express-async-errors';
 
 const app = express();
-
+app.use(cors())
 app.use(express.json());
 
 const PORT = process.env.PORT_SERVER;
