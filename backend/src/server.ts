@@ -1,5 +1,6 @@
 import express, { NextFunction, Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import taskRouter from './routes/tasks.routes';
 import 'dotenv/config';
 import 'express-async-errors';
 
@@ -12,6 +13,8 @@ const PORT = process.env.PORT_SERVER;
 app.get('/', (_req: Request, res: Response) => {
   res.status(StatusCodes.OK).send('welcome to api todo-list-manager')
 });
+
+app.use(taskRouter);
 
 app.use((err: Error, _req: Request, res: Response, next: NextFunction) => {
   const { name, message, details } = err as any;
