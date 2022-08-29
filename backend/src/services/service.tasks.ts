@@ -1,24 +1,27 @@
-import { Optional } from 'sequelize/types';
-import Tasks from '../database/models/tasks';
-import { ITask } from '../interfaces/ITask';
+import { ITask, ITaskModel, ITaskService } from '../interfaces/ITask';
 
-export const getTasks = async () => {
-  const tasks = await Tasks.findAll();
-  return tasks;
-}
+export default class TasksService implements ITaskService {
+  constructor(private model: ITaskModel) {
+    this.model = model;
+  }
 
-export const createTask = async (body: Optional<any, string> | undefined): Promise<ITask> => {
-  const task = await Tasks.create(body);
-  return task;
+  async findAll(): Promise<ITask[] | null> {
+    const tasks = await this.model.findAll();
+    return tasks;
+  }
+
+  async create(body: ITask): Promise<ITask | null> {
+    const task = await this.model.create(body);
+    return task;
+  }
+
+  async update(id: string, body: ITask): Promise<unknown> {
+    const task = await this.model.update(id, body);
+    return task;
+  }
+  
+  async delete(id: string): Promise<unknown> {
+    const task = await this.model.delete(id);
+    return task;
+  }
 };
-
-export const updateTask = async (id: number, body: ITask) => {
-  const { task, status } = body;
-  const update = await Tasks.update({ task, status }, { where: { id } });
-  return update;
-}
-
-export const deleteTask = async (id: number) => {
-  const delTask = await Tasks.destroy({ where: { id } });
-  return delTask;
-}

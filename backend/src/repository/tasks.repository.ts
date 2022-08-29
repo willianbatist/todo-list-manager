@@ -20,7 +20,7 @@ export default class TasksRepository implements ITaskModel {
     const task = await this.model.update({ task: body.task, status: body.status }, { where: { id } });
     return task;
   }
-
+  // volta aqui para analisar o retorno dessa função!
   async delete(id: string): Promise<unknown> {
     const task = await this.model.destroy({ where: { id } });
     return task;
