@@ -5,7 +5,7 @@ const Header: React.FC = () => {
   return(
     <Container>
       <Title>TODO LIST</Title>
-      <Input/>
+      <Input className='btn' placeholder='Escreva sua tarefa'/>
       <Button>Adicionar</Button>
     </Container>
   );
