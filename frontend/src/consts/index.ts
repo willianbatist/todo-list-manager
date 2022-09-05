@@ -1,0 +1,1 @@
+export const URL_TRASH = 'https://img.icons8.com/material-outlined/24/000000/trash--v1.png';

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Task from '../components/Task/Task';
 import { getTasks } from '../services/api';
+import { URL_TRASH } from '../consts/index';
 
 const Home: React.FC = () => {
   const [tasks, setTasks] = useState([]);
@@ -23,6 +24,7 @@ const Home: React.FC = () => {
           key={index}
           task={ task }
           status={ status }
+          Url={ URL_TRASH }
           id={index} />
       )) }
     </div>

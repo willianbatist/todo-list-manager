@@ -5,14 +5,17 @@ interface Props {
   id: number,
   task: string,
   status: string,
+  Url: string,
 }
 
-const Task: React.FC<Props> = ({ task, status }: Props) => {
+const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
   return(
     <ContainerTask>
       <p>{ task }</p>
       <p>{ status }</p>
-        <i className="far fa-trash-alt"></i>
+      <Button>
+        <img src={ Url } alt={ Url } />
+      </Button>
     </ContainerTask>
   )
 }
