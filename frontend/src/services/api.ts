@@ -8,7 +8,7 @@ interface ITask {
   status: string,
 }
 
-export const getTasks = ():Promise<ITask[]> => {
+export const getTasks = async () => {
   return axios.get(GET_TASKS).then((res) => {
     return res.data; 
   });

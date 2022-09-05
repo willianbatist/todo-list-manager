@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Task: React.FC = () => {
+interface Props {
+  id: number,
+  task: string,
+  status: string,
+}
+
+const Task: React.FC<Props> = ({ task, status }: Props) => {
   return(
     <div>
-      Task
+      <p>{ task }</p>
+      <p>{ status }</p>
     </div>
   )
 }
