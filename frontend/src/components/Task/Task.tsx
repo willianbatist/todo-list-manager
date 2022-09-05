@@ -9,12 +9,23 @@ interface Props {
 }
 
 const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
-  return(
+  return (
     <ContainerTask>
-      <p>{ task }</p>
-      <p>{ status }</p>
+      <p>{task}</p>
+      <p>{status}</p>
+      <label className="label-header">
+        <select
+          className="select-header"
+          name='status'
+          defaultValue={ status }
+        >
+          <option value="Pendente">Pendente</option>
+          <option value="Em andamento">Em andamento</option>
+          <option value="Concluído">Concluído</option>
+        </select>
+      </label>
       <Button>
-        <img src={ Url } alt={ Url } />
+        <img src={Url} alt={Url} />
       </Button>
     </ContainerTask>
   )
