@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   text-align: center;
-  border-bottom: solid 1px black;
+  border-bottom: solid 2px black;
   padding: 1%;
 
   &:focus {
@@ -22,7 +22,7 @@ export const Input = styled.input`
   height: 30px;
   border-bottom: solid 1px black;
   font-size: 16px;
-
+  margin-bottom: 20px;
  
 
   @media (max-width: 470px) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContainerTask, Button } from './styles';
+import { ContainerTask, Button, TaskP, SelectStatus, Img } from './styles';
 
 interface Props {
   id: number,
@@ -9,24 +9,27 @@ interface Props {
 }
 
 const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
+
   return (
     <ContainerTask>
-      <p>{task}</p>
-      <p>{status}</p>
+      <div className='ContainerTask'>
+        <TaskP>{task}</TaskP>
+      </div>
+      <div className='ContainerSelect'>
       <label className="label-header">
-        <select
-          className="select-header"
+        <SelectStatus
           name='status'
-          defaultValue={ status }
+          defaultValue={status}
         >
           <option value="Pendente">Pendente</option>
           <option value="Em andamento">Em andamento</option>
           <option value="Concluído">Concluído</option>
-        </select>
+        </SelectStatus>
       </label>
       <Button>
-        <img src={Url} alt={Url} />
+        <Img src={Url} alt={Url} />
       </Button>
+      </div>
     </ContainerTask>
   )
 }

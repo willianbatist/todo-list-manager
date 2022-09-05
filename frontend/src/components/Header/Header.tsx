@@ -4,7 +4,7 @@ import { Container, Input, Button, Title } from './styles';
 const Header: React.FC = () => {
   return(
     <Container>
-      <Title>TODO LIST</Title>
+      <Title>Task Manager</Title>
       <Input className='btn' placeholder='Escreva sua tarefa'/>
       <Button>Adicionar</Button>
     </Container>
