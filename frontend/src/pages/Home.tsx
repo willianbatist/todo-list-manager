@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Task from '../components/Task/Task';
 import { getTasks } from '../services/api';
-import { URL_TRASH } from '../consts/index';
+import { URL_TRASH } from '../constants/index';
 
 const Home: React.FC = () => {
   const [tasks, setTasks] = useState([]);
