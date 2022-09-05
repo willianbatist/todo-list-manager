@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
-export const Title = styled.h1`
-  margin-top: 2%;
-`
+export const ContainerTask = styled.div`
+`;
+export const Button = styled.button`
+  color: black;
+`;

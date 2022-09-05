@@ -1,4 +1,5 @@
 import React from 'react';
+import { ContainerTask, Button } from './styles';
 
 interface Props {
   id: number,
@@ -8,10 +9,11 @@ interface Props {
 
 const Task: React.FC<Props> = ({ task, status }: Props) => {
   return(
-    <div>
+    <ContainerTask>
       <p>{ task }</p>
       <p>{ status }</p>
-    </div>
+        <i className="far fa-trash-alt"></i>
+    </ContainerTask>
   )
 }
 
