@@ -1,11 +1,15 @@
 import React from 'react';
 import { Container, Input, Button, Title } from './styles';
 
-const Header: React.FC = () => {
+interface Props {
+  change(value: string): any;
+}
+
+const Header: React.FC<Props> = ({ change }: Props) => {
   return(
     <Container>
       <Title>Task Manager</Title>
-      <Input className='btn' placeholder='Escreva sua tarefa'/>
+      <Input placeholder='Escreva sua tarefa' onChange={ (e) => change(e.target.value)}/>
       <Button>Adicionar</Button>
     </Container>
   );

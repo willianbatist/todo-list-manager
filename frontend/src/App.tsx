@@ -1,10 +1,13 @@
 import React from 'react';
 import Home from './pages/Home';
+import { AppProvider } from './contexts/index';
 
 function App() {
   return (
     <div className="App">
-      <Home/>
+      <AppProvider>
+        <Home/>
+      </AppProvider>
     </div>
   );
 }
