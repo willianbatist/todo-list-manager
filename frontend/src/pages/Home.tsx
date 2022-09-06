@@ -3,8 +3,10 @@ import Header from '../components/Header/Header';
 import Task from '../components/Task/Task';
 import { getTasks } from '../services/api';
 import { URL_TRASH } from '../constants/index';
+import { useAuth } from '../contexts/auth'
 
 const Home: React.FC = () => {
+  const { setWrittenTask } = useAuth();
   const [tasks, setTasks] = useState([]);
 
   const handleGetTasks = async () => {
@@ -18,7 +20,7 @@ const Home: React.FC = () => {
 
   return(
     <div>
-      <Header/>
+      <Header change={ setWrittenTask }/>
       { tasks.map(({ task, status }, index) => (
         <Task
           key={index}
