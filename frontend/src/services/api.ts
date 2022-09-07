@@ -14,8 +14,6 @@ export const postTask = async (states: ITask) => {
 };
 
 export const deleteTask = async (id: number) => {
-  console.log(id, 'dentro da função deleteTask');
-  
   return axios.delete(`http://localhost:3001/tasks/${id}`)
           .then((res) => console.log(res));
 }
