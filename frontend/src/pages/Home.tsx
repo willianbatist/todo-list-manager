@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Task from '../components/Task/Task';
-import { getTasks } from '../services/api';
+import { getTasks, postTask } from '../services/api';
 import { URL_TRASH } from '../constants/index';
 import { useAuth } from '../contexts/auth'
 
 const Home: React.FC = () => {
-  const { writtenTask, setWrittenTask, handlePostTask } = useAuth();
+  const { writtenTask, setWrittenTask } = useAuth();
   const [tasks, setTasks] = useState([]);
 
   const handleGetTasks = async () => {
     const getTask = await getTasks();
     return setTasks(getTask);
+  };
+  
+  
+  const handlePostTask = async (states: object) => {
+    await postTask(states);
+    await handleGetTasks();
   };
 
   useEffect(() => {

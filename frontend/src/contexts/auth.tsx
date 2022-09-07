@@ -10,6 +10,7 @@ interface AuthContextData {
   writtenTask: string;
   setWrittenTask: any;
   handlePostTask: any;
+  onOff: number;
 }
 
 interface AuthProviderProps {
@@ -20,13 +21,15 @@ const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [writtenTask, setWrittenTask] = useState('');
-  
+  const [onOff, setOnOff] = useState(1);
+
   const handlePostTask = (states: object) => {
+    setOnOff((prevState) => prevState += 1);
     return postTask(states);
   };
 
   return (
-    <AuthContext.Provider value={{ writtenTask, setWrittenTask, handlePostTask }}>
+    <AuthContext.Provider value={{ writtenTask, setWrittenTask, handlePostTask, onOff }}>
       {children}
     </AuthContext.Provider>
   );
