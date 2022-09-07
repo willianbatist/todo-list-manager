@@ -1,13 +1,8 @@
 import React from 'react';
 import { Container, Input, Button, Title } from './styles';
+import { PropsHeader } from '../../types';
 
-interface Props {
-  change(value: string): any;
-  click(states: object): any;
-  task: string;
-}
-
-const Header: React.FC<Props> = ({ change, click, task }: Props) => {
+const Header: React.FC<PropsHeader> = ({ change, click, task }: PropsHeader) => {
   return(
     <Container>
       <Title>Task Manager</Title>

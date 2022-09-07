@@ -4,6 +4,7 @@ import Task from '../components/Task/Task';
 import { getTasks, postTask } from '../services/api';
 import { URL_TRASH } from '../constants/index';
 import { useAuth } from '../contexts/auth'
+import { ITask } from '../types';
 
 const Home: React.FC = () => {
   const { writtenTask, setWrittenTask } = useAuth();
@@ -14,8 +15,7 @@ const Home: React.FC = () => {
     return setTasks(getTask);
   };
   
-  
-  const handlePostTask = async (states: object) => {
+  const handlePostTask = async (states: ITask) => {
     await postTask(states);
     await handleGetTasks();
   };

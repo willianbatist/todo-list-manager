@@ -4,14 +4,7 @@ import {
   useContext,
   useState,
 } from 'react';
-import { postTask } from '../services/api';
-
-interface AuthContextData {
-  writtenTask: string;
-  setWrittenTask: any;
-  handlePostTask: any;
-  onOff: number;
-}
+import { AuthContextData } from '../types/index';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -21,15 +14,9 @@ const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [writtenTask, setWrittenTask] = useState('');
-  const [onOff, setOnOff] = useState(1);
-
-  const handlePostTask = (states: object) => {
-    setOnOff((prevState) => prevState += 1);
-    return postTask(states);
-  };
 
   return (
-    <AuthContext.Provider value={{ writtenTask, setWrittenTask, handlePostTask, onOff }}>
+    <AuthContext.Provider value={{ writtenTask, setWrittenTask }}>
       {children}
     </AuthContext.Provider>
   );

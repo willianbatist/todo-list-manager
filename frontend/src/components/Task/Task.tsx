@@ -1,12 +1,6 @@
 import React from 'react';
 import { ContainerTask, Button, TaskP, SelectStatus, Img } from './styles';
-
-interface Props {
-  id: number,
-  task: string,
-  status: string,
-  Url: string,
-}
+import { Props } from '../../types/index';
 
 const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
 
