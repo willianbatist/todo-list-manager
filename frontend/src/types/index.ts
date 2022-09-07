@@ -3,6 +3,7 @@ export interface Props {
   task: string,
   status: string,
   Url: string,
+  btnDelete: any;
 }
 
 export interface PropsHeader {

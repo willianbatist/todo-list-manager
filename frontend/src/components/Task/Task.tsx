@@ -3,8 +3,9 @@ import { ContainerTask,
   Button, TaskP, SelectStatus, Img, DivTask, DivSelectTask, LabelHeader } from './styles';
 import { Props } from '../../types/index';
 
-const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
-
+const Task: React.FC<Props> = ({ id, task, status, Url, btnDelete }: Props) => {
+  console.log(id, "id no component Task");
+  
   return (
     <ContainerTask>
       <DivTask>
@@ -21,7 +22,7 @@ const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
           <option value="Concluído">Concluído</option>
         </SelectStatus>
       </LabelHeader>
-      <Button>
+      <Button value={ id } onClick={ (id) => btnDelete(id) }>
         <Img src={Url} alt={Url} />
       </Button>
       </DivSelectTask>

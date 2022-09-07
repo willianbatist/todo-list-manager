@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../components/Header/Header';
 import Task from '../components/Task/Task';
-import { getTasks, postTask } from '../services/api';
+import { getTasks, postTask, deleteTask } from '../services/api';
 import { URL_TRASH } from '../constants/index';
 import { useAuth } from '../contexts/auth'
 import { ITask } from '../types';
@@ -19,6 +19,11 @@ const Home: React.FC = () => {
     await postTask(states);
     await handleGetTasks();
   };
+  
+  const handleDeleteTask = async (id: number) => {
+    await deleteTask(id);
+    await handleGetTasks();
+  };
 
   useEffect(() => {
     handleGetTasks();
@@ -31,13 +36,15 @@ const Home: React.FC = () => {
         click={ handlePostTask }
         task={ writtenTask }
       />
-      { tasks.map(({ task, status }, index) => (
+      { tasks.map(({ id, task, status }, index) => (
         <Task
           key={index}
           task={ task }
           status={ status }
           Url={ URL_TRASH }
-          id={index} />
+          id={id}
+          btnDelete={ () => handleDeleteTask(id) }
+          />
       )) }
     </div>
   );
