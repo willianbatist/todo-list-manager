@@ -11,7 +11,6 @@ export default class TasksController {
   async findAll(_req: Request, res: Response, next: NextFunction) {
     try {
       const tasks = await this.service.findAll();
-      if (tasks?.length === 0) res.status(StatusCodes.NOT_FOUND).json({ message: 'Not Found' });
       return res.status(StatusCodes.OK).json(tasks);
     } catch (error) {
       next(error);
