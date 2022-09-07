@@ -4,8 +4,6 @@ import { ContainerTask,
 import { Props } from '../../types/index';
 
 const Task: React.FC<Props> = ({ id, task, status, Url, btnDelete }: Props) => {
-  console.log(id, "id no component Task");
-  
   return (
     <ContainerTask>
       <DivTask>
