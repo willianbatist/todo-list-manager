@@ -1,16 +1,17 @@
 import React from 'react';
-import { ContainerTask, Button, TaskP, SelectStatus, Img } from './styles';
+import { ContainerTask,
+  Button, TaskP, SelectStatus, Img, DivTask, DivSelectTask, LabelHeader } from './styles';
 import { Props } from '../../types/index';
 
 const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
 
   return (
     <ContainerTask>
-      <div className='ContainerTask'>
+      <DivTask>
         <TaskP>{task}</TaskP>
-      </div>
-      <div className='ContainerSelect'>
-      <label className="label-header">
+      </DivTask>
+      <DivSelectTask>
+      <LabelHeader>
         <SelectStatus
           name='status'
           defaultValue={status}
@@ -19,11 +20,11 @@ const Task: React.FC<Props> = ({ task, status, Url }: Props) => {
           <option value="Em andamento">Em andamento</option>
           <option value="Concluído">Concluído</option>
         </SelectStatus>
-      </label>
+      </LabelHeader>
       <Button>
         <Img src={Url} alt={Url} />
       </Button>
-      </div>
+      </DivSelectTask>
     </ContainerTask>
   )
 }
