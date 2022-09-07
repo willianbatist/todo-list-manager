@@ -4,11 +4,7 @@ import {
   useContext,
   useState,
 } from 'react';
-
-interface AuthContextData {
-  writtenTask: string;
-  setWrittenTask: any;
-}
+import { AuthContextData } from '../types/index';
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -18,8 +14,7 @@ const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [writtenTask, setWrittenTask] = useState('');
-  console.log(writtenTask);
-  
+
   return (
     <AuthContext.Provider value={{ writtenTask, setWrittenTask }}>
       {children}

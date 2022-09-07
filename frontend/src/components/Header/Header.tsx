@@ -1,16 +1,13 @@
 import React from 'react';
 import { Container, Input, Button, Title } from './styles';
+import { PropsHeader } from '../../types';
 
-interface Props {
-  change(value: string): any;
-}
-
-const Header: React.FC<Props> = ({ change }: Props) => {
+const Header: React.FC<PropsHeader> = ({ change, click, task }: PropsHeader) => {
   return(
     <Container>
       <Title>Task Manager</Title>
       <Input placeholder='Escreva sua tarefa' onChange={ (e) => change(e.target.value)}/>
-      <Button>Adicionar</Button>
+      <Button onClick={ () => click({task}) }>Adicionar</Button>
     </Container>
   );
 };

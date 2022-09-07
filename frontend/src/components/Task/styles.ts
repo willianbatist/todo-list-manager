@@ -18,6 +18,22 @@ export const ContainerTask = styled.div`
   }
 `;
 
+export const DivTask = styled.div`
+  @media (max-width: 700px) {
+    margin-left: 4%;
+  }
+`;
+
+export const DivSelectTask = styled.div`
+  @media (max-width: 700px) {
+    margin-left: 4%;
+  }
+`;
+
+export const LabelHeader = styled.label`
+  margin-right: 10px;
+`;
+
 export const TaskP = styled.p`
   font-size: 18px;
 `;
