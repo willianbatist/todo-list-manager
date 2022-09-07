@@ -6,7 +6,7 @@ import { URL_TRASH } from '../constants/index';
 import { useAuth } from '../contexts/auth'
 
 const Home: React.FC = () => {
-  const { setWrittenTask } = useAuth();
+  const { writtenTask, setWrittenTask, handlePostTask } = useAuth();
   const [tasks, setTasks] = useState([]);
 
   const handleGetTasks = async () => {
@@ -20,7 +20,11 @@ const Home: React.FC = () => {
 
   return(
     <div>
-      <Header change={ setWrittenTask }/>
+      <Header
+        change={ setWrittenTask }
+        click={ handlePostTask }
+        task={ writtenTask }
+      />
       { tasks.map(({ task, status }, index) => (
         <Task
           key={index}

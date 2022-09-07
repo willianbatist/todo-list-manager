@@ -10,6 +10,6 @@ export const getTasks = async () => {
 export const postTask = async (states: any) => {
   return axios.post(POST_TASKS, {
     task: states.task,
-    status: states.status || 'Pendente',
+    status: 'Pendente',
   }).then((res) => console.log(res));
 };

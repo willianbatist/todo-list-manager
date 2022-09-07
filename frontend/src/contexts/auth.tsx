@@ -4,10 +4,12 @@ import {
   useContext,
   useState,
 } from 'react';
+import { postTask } from '../services/api';
 
 interface AuthContextData {
   writtenTask: string;
   setWrittenTask: any;
+  handlePostTask: any;
 }
 
 interface AuthProviderProps {
@@ -18,10 +20,13 @@ const AuthContext = createContext({} as AuthContextData);
 
 function AuthProvider({ children }: AuthProviderProps) {
   const [writtenTask, setWrittenTask] = useState('');
-  console.log(writtenTask);
   
+  const handlePostTask = (states: object) => {
+    return postTask(states);
+  };
+
   return (
-    <AuthContext.Provider value={{ writtenTask, setWrittenTask }}>
+    <AuthContext.Provider value={{ writtenTask, setWrittenTask, handlePostTask }}>
       {children}
     </AuthContext.Provider>
   );
